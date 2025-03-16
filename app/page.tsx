@@ -1,103 +1,154 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { NewsletterForm } from "@/components/newsletter-form";
+import { BlogPostSummary } from "@/components/blog-post-summary";
+import { Gallery } from "@/components/gallery";
 
 export default function Home() {
+  // Mock data - would come from CMS in production
+  const featuredPosts = [
+    {
+      id: "1",
+      title: "The Science Behind Intermittent Fasting",
+      excerpt:
+        "New research reveals how intermittent fasting affects metabolic health and longevity. Studies show significant improvements in insulin sensitivity and cellular repair mechanisms.",
+      date: "March 12, 2025",
+      author: "Dr. Sarah Johnson",
+      commentCount: 24,
+      image:
+        "https://images.pexels.com/photos/1642125/pexels-photo-1642125.jpeg",
+      slug: "science-behind-intermittent-fasting",
+    },
+    {
+      id: "2",
+      title: "5 Essential Nutrients You Might Be Missing",
+      excerpt:
+        "Despite eating a balanced diet, many people are deficient in key nutrients. Learn which vitamins and minerals are commonly lacking and how to incorporate them into your meals.",
+      date: "March 10, 2025",
+      author: "Michael Chen, RD",
+      commentCount: 18,
+      image:
+        "https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg",
+      slug: "essential-nutrients-missing",
+    },
+    {
+      id: "3",
+      title: "Mindfulness Meditation: A Beginner's Guide",
+      excerpt:
+        "Discover how just 10 minutes of daily meditation can transform your mental health. This beginner-friendly guide walks you through simple techniques to reduce stress and improve focus.",
+      date: "March 8, 2025",
+      author: "Emma Williams",
+      commentCount: 32,
+      image:
+        "https://images.pexels.com/photos/3759657/pexels-photo-3759657.jpeg",
+      slug: "mindfulness-meditation-beginners-guide",
+    },
+  ];
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <main className="flex min-h-screen flex-col">
+      {/* Hero Section */}
+      <section className="relative h-[70vh] w-full">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          src="https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg"
+          alt="Healthy lifestyle"
+          fill
+          className="object-cover brightness-75"
           priority
         />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 font-heading">
+            Wellness Wisdom
+          </h1>
+          <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl">
+            Evidence-based insights for your healthiest life
+          </p>
+          <Button size="lg" className="bg-primary hover:bg-primary/90">
+            Explore Articles
+          </Button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Featured Posts */}
+      <section className="container mx-auto py-16 px-4">
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="text-3xl font-bold font-heading">Latest Articles</h2>
+          <Link
+            href="/blog"
+            className="text-primary flex items-center gap-1 hover:underline"
+          >
+            View all <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {featuredPosts.map((post) => (
+            <BlogPostSummary key={post.id} post={post} />
+          ))}
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="bg-muted py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-4 font-heading">
+              Stay Updated
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              Subscribe to our newsletter for the latest health insights, tips,
+              and research.
+            </p>
+            <NewsletterForm />
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="container mx-auto py-16 px-4">
+        <h2 className="text-3xl font-bold mb-8 font-heading">Health Gallery</h2>
+        <Gallery />
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-primary/5 py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-12 text-center font-heading">
+            Reader Testimonials
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[1, 2, 3].map((i) => (
+              <Card key={i} className="bg-background">
+                <CardContent className="pt-6">
+                  <p className="italic text-muted-foreground">
+                    "This blog has completely transformed my approach to
+                    nutrition. The evidence-based articles have helped me make
+                    informed decisions about my health."
+                  </p>
+                </CardContent>
+                <CardFooter>
+                  <div className="flex items-center gap-4">
+                    <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
+                      <span className="font-medium text-primary">
+                        {String.fromCharCode(64 + i)}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="font-medium">Reader {i}</p>
+                      <p className="text-sm text-muted-foreground">
+                        Health Enthusiast
+                      </p>
+                    </div>
+                  </div>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
