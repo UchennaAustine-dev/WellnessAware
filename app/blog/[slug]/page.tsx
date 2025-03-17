@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { getBlogPost, getRelatedPosts } from "@/lib/blog";
-// import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -15,94 +15,106 @@ type PageParams = {
 };
 
 // Generate metadata for the blog post
-// export async function generateMetadata({
-//   params,
-// }: {
-//   params: PageParams;
-// }): Promise<Metadata> {
-//   const post = await getBlogPost(params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<PageParams> | PageParams | Promise<any>;
+}): Promise<Metadata> {
+  // Await the params object before accessing its properties
+  const resolvedParams = await Promise.resolve(params);
+  const slug = resolvedParams.slug;
 
-//   if (!post) {
-//     return {
-//       title: "Post Not Found",
-//       description: "The requested blog post could not be found.",
-//     };
-//   }
+  const post = await getBlogPost(slug);
 
-//   return {
-//     title: post.title,
-//     description: post.excerpt || post.title,
-//     openGraph: {
-//       title: post.title,
-//       description: post.excerpt || post.title,
-//       type: "article",
-//       publishedTime: post.date,
-//       authors: [post.author.name],
-//       images: [
-//         {
-//           url: post.image,
-//           width: 1200,
-//           height: 630,
-//           alt: post.title,
-//         },
-//       ],
-//       url: `https://wellnessaware.site/blog/${post.slug}`,
-//     },
-//     twitter: {
-//       card: "summary_large_image",
-//       title: post.title,
-//       description: post.excerpt || post.title,
-//       images: [post.image],
-//     },
-//     alternates: {
-//       canonical: `https://wellnessaware.site/blog/${post.slug}`,
-//     },
-//   };
-// }
+  if (!post) {
+    return {
+      title: "Post Not Found",
+      description: "The requested blog post could not be found.",
+    };
+  }
+
+  return {
+    title: post.title,
+    description: post.excerpt || post.title,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt || post.title,
+      type: "article",
+      publishedTime: post.date,
+      authors: [post.author.name],
+      images: [
+        {
+          url: post.image,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      url: `https://wellnessaware.site/blog/${slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt || post.title,
+      images: [post.image],
+    },
+    alternates: {
+      canonical: `https://wellnessaware.site/blog/${slug}`,
+    },
+  };
+}
 
 // Define the page component with the correct param type
-export default async function BlogPostPage({ params }: { params: PageParams }) {
-  const post = await getBlogPost(params.slug);
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<PageParams> | PageParams | Promise<any>;
+}) {
+  // Await the params object before accessing its properties
+  const resolvedParams = await Promise.resolve(params);
+  const slug = resolvedParams.slug;
+
+  const post = await getBlogPost(slug);
 
   if (!post) {
     notFound();
   }
 
-  const relatedPosts = await getRelatedPosts(params.slug, post.category);
+  const relatedPosts = await getRelatedPosts(slug, post.category);
 
   // Structured data for SEO
-  //   const jsonLd = {
-  //     "@context": "https://schema.org",
-  //     "@type": "BlogPosting",
-  //     headline: post.title,
-  //     image: post.image,
-  //     datePublished: post.date,
-  //     author: {
-  //       "@type": "Person",
-  //       name: post.author.name,
-  //       jobTitle: post.author.role,
-  //     },
-  //     publisher: {
-  //       "@type": "Organization",
-  //       name: "WellnessAware",
-  //       logo: {
-  //         "@type": "ImageObject",
-  //         url: "https://wellnessaware.site/logo.png",
-  //       },
-  //     },
-  //     description: post.excerpt || post.title,
-  //     mainEntityOfPage: {
-  //       "@type": "WebPage",
-  //       "@id": `https://wellnessaware.site/blog/${post.slug}`,
-  //     },
-  //   };
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    image: post.image,
+    datePublished: post.date,
+    author: {
+      "@type": "Person",
+      name: post.author.name,
+      jobTitle: post.author.role,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "WellnessAware",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://wellnessaware.site/logo.png",
+      },
+    },
+    description: post.excerpt || post.title,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://wellnessaware.site/blog/${slug}`,
+    },
+  };
 
   return (
     <>
-      {/* <script
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      /> */}
+      />
 
       <div className="flex justify-center w-full">
         <div className="w-full max-w-5xl px-4 sm:px-6 lg:px-8 py-10">
