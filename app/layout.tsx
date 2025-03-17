@@ -1,10 +1,11 @@
 import type React from "react";
-import { dmSans, inter, smoochSans } from "./fonts";
+import { dmSans, smoochSans } from "./fonts";
 import "./globals.css";
 import { SiteFooter } from "@/components/common/site-footer";
 import { SiteHeader } from "@/components/common/site-header";
+import { ThemeProvider } from "next-themes";
 import type { Metadata } from "next";
-import { ThemeProvider } from "@/components/theme-provider";
+import { GDPRConsentBanner } from "@/components/home/gdpr-consent-banner";
 
 // SEO metadata
 export const metadata: Metadata = {
@@ -97,8 +98,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="text/javascript"
+          src="https://fstatic.netpub.media/extra/cmp/cmp-gdpr.js"
+          defer
+        />
+      </head>
       <body
-        className={`${inter.variable} ${dmSans.variable} ${smoochSans.variable} font-sans antialiased`}
+        className={`${dmSans.variable} ${smoochSans.variable} font-sans antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -110,6 +118,7 @@ export default function RootLayout({
             <SiteHeader />
             <main className="flex-1">{children}</main>
             <SiteFooter />
+            <GDPRConsentBanner />
           </div>
         </ThemeProvider>
       </body>
