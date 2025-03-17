@@ -82,14 +82,11 @@ const mockComments = [
 ];
 
 interface CommentSectionProps {
-  postSlug: string;
+  postSlug?: string;
   commentCount: number;
 }
 
-export function CommentSection({
-  postSlug,
-  commentCount,
-}: CommentSectionProps) {
+export function CommentSection({ commentCount }: CommentSectionProps) {
   const [comments, setComments] = useState(mockComments);
   const [isSubmitting, setIsSubmitting] = useState(false);
   //   const { toast } = useToast()
@@ -129,6 +126,7 @@ export function CommentSection({
       //     description: "Your comment has been added to the discussion.",
       //   })
     } catch (error) {
+      console.error("Error posting comment:", error); // Log the error for debugging
       //   toast({
       //     title: "Error",
       //     description: "Failed to post your comment. Please try again.",

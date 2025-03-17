@@ -1,275 +1,292 @@
-"use client";
-
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { Loader2, Mail, MapPin, Phone } from "lucide-react";
-
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-// import { useToast } from "@/hooks/use-toast"
+  Mail,
+  MapPin,
+  Phone,
+  Facebook,
+  Twitter,
+  Instagram,
+  Youtube,
+} from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
-const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters."),
-  email: z.string().email("Please enter a valid email address."),
-  subject: z.string().min(1, "Please select a subject."),
-  message: z
-    .string()
-    .min(10, "Message must be at least 10 characters.")
-    .max(500, "Message must be less than 500 characters."),
-});
-
-type FormValues = z.infer<typeof formSchema>;
+export const metadata: Metadata = {
+  title: "Contact Us | WellnessAware",
+  description: "Get in touch with the WellnessAware team",
+};
 
 export default function ContactPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  //   const { toast } = useToast()
-
-  const form = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    },
-  });
-
-  const onSubmit = async (values: FormValues) => {
-    setIsSubmitting(true);
-
-    // Simulate API call
-    try {
-      // In production, this would be a real API call to your backend
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      form.reset();
-
-      //   toast({
-      //     title: "Message sent!",
-      //     description: "We'll get back to you as soon as possible.",
-      //   })
-    } catch (error) {
-      //   toast({
-      //     title: "Error",
-      //     description: "Failed to send your message. Please try again.",
-      //     variant: "destructive",
-      //   })
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
-    <main className="flex-1">
-      <section className="bg-muted py-12 md:py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 font-heading">
-              Contact Us
-            </h1>
-            <p className="text-xl text-muted-foreground">
-              Have questions or feedback? We'd love to hear from you.
-            </p>
-          </div>
+    <div className="flex justify-center w-full">
+      <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+        <div className="mb-16 text-center">
+          <Badge variant="outline" className="mb-3">
+            Get In Touch
+          </Badge>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-heading">
+            Contact Us
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Have questions, feedback, or suggestions? We&#39;d love to hear from
+            you. Our team is here to help.
+          </p>
         </div>
-      </section>
-
-      <section className="container mx-auto py-12 px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
+          <div className="bg-muted/30 p-8 rounded-2xl">
             <h2 className="text-2xl font-bold mb-6 font-heading">
               Send Us a Message
             </h2>
-
-            <Form {...form}>
-              <form
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-6"
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Name</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Your name" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Your email" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="text-sm font-medium">
+                    Name
+                  </label>
+                  <Input
+                    id="name"
+                    placeholder="Your name"
+                    className="rounded-lg"
                   />
                 </div>
-
-                <FormField
-                  control={form.control}
-                  name="subject"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Subject</FormLabel>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select a subject" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="general">
-                            General Inquiry
-                          </SelectItem>
-                          <SelectItem value="content">
-                            Content Suggestion
-                          </SelectItem>
-                          <SelectItem value="partnership">
-                            Partnership Opportunity
-                          </SelectItem>
-                          <SelectItem value="feedback">Feedback</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm font-medium">
+                    Email
+                  </label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="Your email address"
+                    className="rounded-lg"
+                  />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="subject" className="text-sm font-medium">
+                  Subject
+                </label>
+                <Input
+                  id="subject"
+                  placeholder="What is this regarding?"
+                  className="rounded-lg"
                 />
-
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Message</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          placeholder="Your message"
-                          className="min-h-[150px] resize-none"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="message" className="text-sm font-medium">
+                  Message
+                </label>
+                <Textarea
+                  id="message"
+                  placeholder="Your message"
+                  rows={5}
+                  className="rounded-lg"
                 />
-
-                <Button
-                  type="submit"
-                  className="w-full md:w-auto"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    "Send Message"
-                  )}
-                </Button>
-              </form>
-            </Form>
+              </div>
+              <Button type="submit" className="w-full rounded-lg">
+                Send Message
+              </Button>
+            </form>
           </div>
-
           <div>
-            <h2 className="text-2xl font-bold mb-6 font-heading">
+            <h2 className="text-2xl font-bold mb-8 font-heading">
               Contact Information
             </h2>
-
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="h-5 w-5 text-primary" />
+            <div className="space-y-8">
+              <div className="flex items-start gap-6">
+                <div className="bg-primary/10 p-4 rounded-xl">
+                  <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium">Email</h3>
-                  <p className="text-muted-foreground">
-                    info@wellnesswisdom.com
+                  <h3 className="font-bold text-lg mb-2">Email</h3>
+                  <p className="text-muted-foreground mb-1">
+                    <a
+                      href="mailto:info@wellnessaware.site"
+                      className="hover:text-primary transition-colors"
+                    >
+                      info@wellnessaware.site
+                    </a>
                   </p>
                   <p className="text-muted-foreground">
-                    support@wellnesswisdom.com
+                    <a
+                      href="mailto:support@wellnessaware.site"
+                      className="hover:text-primary transition-colors"
+                    >
+                      support@wellnessaware.site
+                    </a>
+                  </p>
+                  <p className="text-sm text-muted-foreground/70 mt-2">
+                    We typically respond within 24-48 hours
                   </p>
                 </div>
               </div>
-
-              <div className="flex items-start gap-4">
-                <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="h-5 w-5 text-primary" />
+              <div className="flex items-start gap-6">
+                <div className="bg-primary/10 p-4 rounded-xl">
+                  <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium">Phone</h3>
-                  <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                  <p className="text-muted-foreground">Mon-Fri, 9am-5pm EST</p>
+                  <h3 className="font-bold text-lg mb-2">Phone</h3>
+                  <p className="text-muted-foreground mb-1">
+                    <a
+                      href="tel:+15551234567"
+                      className="hover:text-primary transition-colors"
+                    >
+                      (555) 123-4567
+                    </a>
+                  </p>
+                  <p className="text-sm text-muted-foreground/70 mt-2">
+                    Available Monday-Friday, 9am-5pm EST
+                  </p>
                 </div>
               </div>
-
-              <div className="flex items-start gap-4">
-                <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="h-5 w-5 text-primary" />
+              <div className="flex items-start gap-6">
+                <div className="bg-primary/10 p-4 rounded-xl">
+                  <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium">Office</h3>
-                  <p className="text-muted-foreground">123 Wellness Way</p>
-                  <p className="text-muted-foreground">
-                    Healthy City, HC 10001
+                  <h3 className="font-bold text-lg mb-2">Location</h3>
+                  <p className="text-muted-foreground mb-1">123 Wellness Way</p>
+                  <p className="text-muted-foreground">Health City, HC 12345</p>
+                  <p className="text-sm text-muted-foreground/70 mt-2">
+                    <a
+                      href="https://maps.google.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      Get Directions
+                    </a>
                   </p>
                 </div>
               </div>
             </div>
-
-            <div className="mt-8 p-4 bg-muted rounded-lg">
-              <h3 className="font-medium mb-2">Office Hours</h3>
-              <ul className="space-y-1 text-sm text-muted-foreground">
-                <li className="flex justify-between">
-                  <span>Monday - Friday</span>
-                  <span>9:00 AM - 5:00 PM</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Saturday</span>
-                  <span>10:00 AM - 2:00 PM</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Sunday</span>
-                  <span>Closed</span>
-                </li>
-              </ul>
+            <div className="mt-12">
+              <h3 className="text-xl font-bold mb-4 font-heading">Follow Us</h3>
+              <p className="text-muted-foreground mb-6">
+                Stay connected with us on social media for the latest updates,
+                tips, and health insights.
+              </p>
+              <div className="flex gap-4">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full h-12 w-12"
+                  asChild
+                >
+                  <a
+                    href="https://facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                  >
+                    <Facebook className="h-5 w-5" />
+                  </a>
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full h-12 w-12"
+                  asChild
+                >
+                  <a
+                    href="https://twitter.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Twitter"
+                  >
+                    <Twitter className="h-5 w-5" />
+                  </a>
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full h-12 w-12"
+                  asChild
+                >
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="h-5 w-5" />
+                  </a>
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full h-12 w-12"
+                  asChild
+                >
+                  <a
+                    href="https://youtube.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="YouTube"
+                  >
+                    <Youtube className="h-5 w-5" />
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
-      </section>
-    </main>
+        {/* FAQ Section */}
+        <div className="bg-muted/30 p-8 rounded-2xl mb-16">
+          <h2 className="text-2xl font-bold mb-8 text-center font-heading">
+            Frequently Asked Questions
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                question: "How can I contribute an article?",
+                answer:
+                  "We welcome guest contributions from health professionals. Please email us at contributors@wellnessaware.site with your credentials and article idea.",
+              },
+              {
+                question: "Do you offer health consultations?",
+                answer:
+                  "We don&#39;t provide individual health consultations. Our content is for informational purposes only and should not replace professional medical advice.",
+              },
+              {
+                question: "How can I advertise on your platform?",
+                answer:
+                  "For partnership and advertising inquiries, please contact our business team at partnerships@wellnessaware.site.",
+              },
+              {
+                question: "Is your content medically reviewed?",
+                answer:
+                  "Yes, all our health articles are reviewed by qualified medical professionals before publication to ensure accuracy.",
+              },
+            ].map((faq, index) => (
+              <div key={index} className="space-y-2">
+                <h3 className="font-bold text-lg">{faq.question}</h3>
+                <p className="text-muted-foreground">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* CTA Section */}
+        <div className="text-center">
+          <h2 className="text-2xl font-bold mb-4 font-heading">
+            Can&#39;t find what you&#39;re looking for?
+          </h2>
+          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+            Browse our comprehensive knowledge base or check out our blog for
+            more information.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button asChild className="rounded-full">
+              <Link href="/blog">Visit Our Blog</Link>
+            </Button>
+            <Button variant="outline" asChild className="rounded-full">
+              <Link href="/about">About Us</Link>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

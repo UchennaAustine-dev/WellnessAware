@@ -55,6 +55,7 @@ export function NewsletterForm() {
       //     description: "You've been subscribed to our newsletter.",
       //   })
     } catch (error) {
+      console.error("Error subscribing to newsletter:", error); // Log the error for debugging
       //   toast({
       //     title: "Something went wrong.",
       //     description: "Please try again later.",

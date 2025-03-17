@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import {
   Card,
-  CardContent,
+  // CardContent, // Removed unused import
   CardDescription,
   CardFooter,
   CardHeader,
@@ -75,8 +75,8 @@ export default function CategoriesPage() {
               Categories
             </h1>
             <p className="text-xl text-muted-foreground">
-              Browse our content by topic to find exactly what you're looking
-              for.
+              Browse our content by topic to find exactly what you&#39;re
+              looking for.
             </p>
           </div>
         </div>

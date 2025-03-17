@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 // Mock gallery data - would come from CMS in production
 const galleryItems = [
@@ -85,6 +85,7 @@ export function Gallery() {
         <DialogContent className="max-w-3xl p-0 overflow-hidden">
           {selectedImage && (
             <div>
+              <DialogTitle className="sr-only">Image Details</DialogTitle>
               <div className="relative aspect-video">
                 <Image
                   src={selectedImage.image || "/placeholder.svg"}

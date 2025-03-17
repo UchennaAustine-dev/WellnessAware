@@ -37,11 +37,11 @@ export default function CookiePolicyPage() {
           <p>
             We use cookies for several reasons. Some cookies are required for
             technical reasons in order for our website to operate, and we refer
-            to these as "essential" or "strictly necessary" cookies. Other
-            cookies also enable us to track and target the interests of our
-            users to enhance the experience on our website. Third parties serve
-            cookies through our website for advertising, analytics and other
-            purposes.
+            to these as &quot;essential&quot; or &quot;strictly necessary&quot;
+            cookies. Other cookies also enable us to track and target the
+            interests of our users to enhance the experience on our website.
+            Third parties serve cookies through our website for advertising,
+            analytics and other purposes.
           </p>
 
           <h2>Types of Cookies We Use</h2>
