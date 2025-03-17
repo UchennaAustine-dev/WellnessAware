@@ -1,13 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  ChevronRight,
-  ArrowDown,
-  Heart,
-  BookOpen,
-  Users,
-} from "lucide-react";
+import { ArrowRight, ChevronRight, Heart, BookOpen, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { NewsletterForm } from "@/components/newsletter-form";
@@ -16,9 +8,7 @@ import { Gallery } from "@/components/gallery";
 import { getBlogPosts } from "@/lib/blog";
 import { Badge } from "@/components/ui/badge";
 import HeroSection from "@/components/home/HeroSection";
-import CategoryNav from "@/components/home/CategoryNav";
-import FeaturedPosts from "@/components/home/FeaturedPost";
-import FeaturesSection from "@/components/home/FeaturesSection";
+import NewsletterSection from "@/components/home/NewsletterSection";
 
 export default async function Home() {
   // Get featured posts from the blog data
@@ -62,7 +52,7 @@ export default async function Home() {
       <HeroSection />
 
       {/* Category Navigation */}
-      {/* <section className="w-full bg-muted/50 py-6 sm:py-8 border-y overflow-x-auto">
+      <section className="w-full bg-muted/50 py-6 sm:py-8 border-y overflow-x-auto">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-start sm:justify-center gap-3 sm:gap-4 min-w-max sm:flex-wrap">
             {categories.map((category) => (
@@ -79,11 +69,10 @@ export default async function Home() {
             ))}
           </div>
         </div>
-      </section> */}
-      <CategoryNav />
+      </section>
 
       {/* Featured Posts */}
-      {/* <section className="w-full py-12 sm:py-16 md:py-20 bg-background">
+      <section className="w-full py-12 sm:py-16 md:py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
             <Badge variant="outline" className="mb-2 sm:mb-3">
@@ -116,12 +105,10 @@ export default async function Home() {
             </Button>
           </div>
         </div>
-      </section> */}
-
-      <FeaturedPosts />
+      </section>
 
       {/* Features Section */}
-      {/* <section className="w-full py-12 sm:py-16 md:py-20 bg-muted/30">
+      <section className="w-full py-12 sm:py-16 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center mb-8 sm:mb-12 md:mb-16">
             <Badge variant="outline" className="mb-2 sm:mb-3">
@@ -228,28 +215,10 @@ export default async function Home() {
             </Card>
           </div>
         </div>
-      </section> */}
-
-      <FeaturesSection />
+      </section>
 
       {/* Newsletter Section */}
-      <section className="w-full py-12 sm:py-16 md:py-20 bg-gradient-to-r from-primary/5 to-primary/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto text-center">
-            <Badge variant="outline" className="mb-2 sm:mb-3">
-              Stay Updated
-            </Badge>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 font-heading">
-              Join Our Newsletter
-            </h2>
-            <p className="text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8">
-              Get the latest health insights, tips, and research delivered
-              directly to your inbox. No spam, just valuable content.
-            </p>
-            <NewsletterForm />
-          </div>
-        </div>
-      </section>
+      <NewsletterSection />
 
       {/* Gallery Section */}
       <section className="w-full py-12 sm:py-16 md:py-20 bg-background">
