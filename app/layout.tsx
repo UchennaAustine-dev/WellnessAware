@@ -1,10 +1,10 @@
 import type React from "react";
-import { dmSans, smoochSans } from "./font";
+import { dmSans, inter, smoochSans } from "./fonts";
 import "./globals.css";
 import { SiteFooter } from "@/components/common/site-footer";
 import { SiteHeader } from "@/components/common/site-header";
-import { ThemeProvider } from "next-themes";
 import type { Metadata } from "next";
+import { ThemeProvider } from "@/components/theme-provider";
 
 // SEO metadata
 export const metadata: Metadata = {
@@ -98,7 +98,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${dmSans.variable} ${smoochSans.variable} font-sans antialiased`}
+        className={`${inter.variable} ${dmSans.variable} ${smoochSans.variable} font-sans antialiased`}
       >
         <ThemeProvider
           attribute="class"

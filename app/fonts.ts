@@ -1,4 +1,11 @@
-import { DM_Sans, Smooch_Sans } from "next/font/google";
+import { DM_Sans, Smooch_Sans, Inter } from "next/font/google";
+
+// Load Inter as the primary font
+export const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans",
+});
 
 // Load Smooch Sans for headings
 export const smoochSans = Smooch_Sans({
@@ -8,10 +15,10 @@ export const smoochSans = Smooch_Sans({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-// Load DM Sans for body text
+// Load DM Sans as an alternative body font
 export const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-dm-sans",
   display: "swap",
   weight: ["300", "400", "500", "600", "700", "800"],
 });
