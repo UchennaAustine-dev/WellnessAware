@@ -15,6 +15,10 @@ import { BlogPostSummary } from "@/components/blog-post-summary";
 import { Gallery } from "@/components/gallery";
 import { getBlogPosts } from "@/lib/blog";
 import { Badge } from "@/components/ui/badge";
+import HeroSection from "@/components/home/HeroSection";
+import CategoryNav from "@/components/home/CategoryNav";
+import FeaturedPosts from "@/components/home/FeaturedPost";
+import FeaturesSection from "@/components/home/FeaturesSection";
 
 export default async function Home() {
   // Get featured posts from the blog data
@@ -55,68 +59,10 @@ export default async function Home() {
   return (
     <div className="flex flex-col items-center w-full">
       {/* Hero Section */}
-      <section className="relative w-full h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] flex items-center">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg"
-            alt="Healthy lifestyle"
-            fill
-            className="object-cover brightness-[0.65]"
-            priority
-          />
-        </div>
-        <div className="container mx-auto z-10 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <Badge className="mb-3 sm:mb-4 text-xs sm:text-sm py-1 px-2 sm:px-3 bg-primary/20 text-primary border-primary/30 backdrop-blur-sm">
-              Evidence-Based Health &amp; Wellness
-            </Badge>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 font-heading leading-tight">
-              Your Journey to{" "}
-              <span className="text-primary">Better Health</span> Starts Here
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl">
-              Discover science-backed insights to optimize your health, fitness,
-              and wellbeing from trusted experts.
-            </p>
-            <div className="flex flex-wrap gap-3 sm:gap-4">
-              <Button
-                size="sm"
-                asChild
-                className="rounded-full text-sm sm:text-base sm:size-lg"
-              >
-                <Link href="/blog" className="flex items-center">
-                  Explore Articles{" "}
-                  <ArrowRight className="ml-1 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4" />
-                </Link>
-              </Button>
-              <Button
-                size="sm"
-                variant="outline"
-                asChild
-                className="rounded-full text-sm sm:text-base sm:size-lg bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
-              >
-                <Link href="/about" className="flex items-center">
-                  About Us{" "}
-                  <ChevronRight className="ml-1 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4" />
-                </Link>
-              </Button>
-            </div>
-            <div className="mt-8 sm:mt-12 flex items-center">
-              <Button
-                variant="ghost"
-                size="sm"
-                className="rounded-full text-white hover:bg-white/10 p-0 h-auto"
-              >
-                <ArrowDown className="h-5 w-5 sm:h-6 sm:w-6 animate-bounce" />
-                <span className="sr-only">Scroll down</span>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Category Navigation */}
-      <section className="w-full bg-muted/50 py-6 sm:py-8 border-y overflow-x-auto">
+      {/* <section className="w-full bg-muted/50 py-6 sm:py-8 border-y overflow-x-auto">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-start sm:justify-center gap-3 sm:gap-4 min-w-max sm:flex-wrap">
             {categories.map((category) => (
@@ -133,10 +79,11 @@ export default async function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+      <CategoryNav />
 
       {/* Featured Posts */}
-      <section className="w-full py-12 sm:py-16 md:py-20 bg-background">
+      {/* <section className="w-full py-12 sm:py-16 md:py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
             <Badge variant="outline" className="mb-2 sm:mb-3">
@@ -169,10 +116,12 @@ export default async function Home() {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
+
+      <FeaturedPosts />
 
       {/* Features Section */}
-      <section className="w-full py-12 sm:py-16 md:py-20 bg-muted/30">
+      {/* <section className="w-full py-12 sm:py-16 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center mb-8 sm:mb-12 md:mb-16">
             <Badge variant="outline" className="mb-2 sm:mb-3">
@@ -279,7 +228,9 @@ export default async function Home() {
             </Card>
           </div>
         </div>
-      </section>
+      </section> */}
+
+      <FeaturesSection />
 
       {/* Newsletter Section */}
       <section className="w-full py-12 sm:py-16 md:py-20 bg-gradient-to-r from-primary/5 to-primary/10">
