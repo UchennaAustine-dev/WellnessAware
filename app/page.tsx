@@ -9,6 +9,9 @@ import { getBlogPosts } from "@/lib/blog";
 import { Badge } from "@/components/ui/badge";
 import HeroSection from "@/components/home/HeroSection";
 import NewsletterSection from "@/components/home/NewsletterSection";
+import CTASection from "@/components/home/CTASection";
+import GallerySection from "@/components/home/GallerySection";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
 
 export default async function Home() {
   // Get featured posts from the blog data
@@ -221,134 +224,13 @@ export default async function Home() {
       <NewsletterSection />
 
       {/* Gallery Section */}
-      <section className="w-full py-12 sm:py-16 md:py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
-            <Badge variant="outline" className="mb-2 sm:mb-3">
-              Visual Inspiration
-            </Badge>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading mb-3 sm:mb-4">
-              Health Gallery
-            </h2>
-            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mb-6 sm:mb-8">
-              Explore our curated collection of health and wellness imagery to
-              inspire your journey.
-            </p>
-          </div>
-          <Gallery />
-        </div>
-      </section>
+      <GallerySection />
 
       {/* Testimonials */}
-      <section className="w-full py-20 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center text-center mb-12">
-            <Badge variant="outline" className="mb-3">
-              Success Stories
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
-              Reader Testimonials
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mb-8">
-              Hear from our community about how WellnessAware has helped them on
-              their health journey.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                quote:
-                  "WellnessAware&#39;s evidence-based approach helped me separate fact from fiction in the confusing world of nutrition. I&#39;ve lost 20 pounds and feel better than ever.",
-                name: "Sarah Johnson",
-                title: "Nutrition Enthusiast",
-              },
-              {
-                quote:
-                  "The mental health resources on this site have been invaluable for my anxiety management. I appreciate the science-backed techniques that actually work.",
-                name: "Michael Chen",
-                title: "Mindfulness Practitioner",
-              },
-              {
-                quote:
-                  "As a fitness trainer, I regularly recommend WellnessAware to my clients. The information is accurate, accessible, and actionable.",
-                name: "James Rodriguez",
-                title: "Certified Personal Trainer",
-              },
-            ].map((testimonial, i) => (
-              <Card key={i} className="bg-background border-none shadow-lg">
-                <CardContent className="pt-8">
-                  <div className="mb-4">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <span key={star} className="text-yellow-400 text-lg">
-                        ★
-                      </span>
-                    ))}
-                  </div>
-                  <p className="italic text-muted-foreground mb-6">
-                    &quot;{testimonial.quote}&quot;
-                  </p>
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center">
-                      <span className="font-medium text-primary">
-                        {testimonial.name.charAt(0)}
-                      </span>
-                    </div>
-                    <div>
-                      <p className="font-medium">{testimonial.name}</p>
-                      <p className="text-sm text-muted-foreground">
-                        {testimonial.title}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <div className="flex justify-center mt-12">
-            <Button asChild size="lg" className="rounded-full">
-              <Link href="/contact">
-                Share Your Story <ChevronRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <TestimonialsSection />
 
       {/* CTA Section */}
-      <section className="w-full py-20 bg-primary/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 font-heading">
-              Ready to Transform Your Health?
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Explore our comprehensive resources and start your journey to
-              better health today.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button size="lg" asChild className="rounded-full">
-                <Link href="/blog">Browse Articles</Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="rounded-full"
-              >
-                <Link href="/categories">Explore Categories</Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="secondary"
-                asChild
-                className="rounded-full"
-              >
-                <Link href="/contact">Contact Us</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTASection />
     </div>
   );
 }
