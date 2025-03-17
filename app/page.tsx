@@ -55,7 +55,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col items-center w-full">
       {/* Hero Section */}
-      <section className="relative w-full h-[85vh] flex items-center">
+      <section className="relative w-full h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg"
@@ -67,41 +67,47 @@ export default async function Home() {
         </div>
         <div className="container mx-auto z-10 px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <Badge className="mb-4 text-sm py-1 px-3 bg-primary/20 text-primary border-primary/30 backdrop-blur-sm">
+            <Badge className="mb-3 sm:mb-4 text-xs sm:text-sm py-1 px-2 sm:px-3 bg-primary/20 text-primary border-primary/30 backdrop-blur-sm">
               Evidence-Based Health &amp; Wellness
             </Badge>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 font-heading leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 font-heading leading-tight">
               Your Journey to{" "}
               <span className="text-primary">Better Health</span> Starts Here
             </h1>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl">
               Discover science-backed insights to optimize your health, fitness,
               and wellbeing from trusted experts.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Button size="lg" asChild className="rounded-full text-base">
-                <Link href="/blog">
-                  Explore Articles <ArrowRight className="ml-2 h-4 w-4" />
+            <div className="flex flex-wrap gap-3 sm:gap-4">
+              <Button
+                size="sm"
+                asChild
+                className="rounded-full text-sm sm:text-base sm:size-lg"
+              >
+                <Link href="/blog" className="flex items-center">
+                  Explore Articles{" "}
+                  <ArrowRight className="ml-1 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4" />
                 </Link>
               </Button>
               <Button
-                size="lg"
+                size="sm"
                 variant="outline"
                 asChild
-                className="rounded-full text-base bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+                className="rounded-full text-sm sm:text-base sm:size-lg bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
               >
-                <Link href="/about">
-                  About Us <ChevronRight className="ml-2 h-4 w-4" />
+                <Link href="/about" className="flex items-center">
+                  About Us{" "}
+                  <ChevronRight className="ml-1 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4" />
                 </Link>
               </Button>
             </div>
-            <div className="mt-12 flex items-center">
+            <div className="mt-8 sm:mt-12 flex items-center">
               <Button
                 variant="ghost"
                 size="sm"
                 className="rounded-full text-white hover:bg-white/10 p-0 h-auto"
               >
-                <ArrowDown className="h-6 w-6 animate-bounce" />
+                <ArrowDown className="h-5 w-5 sm:h-6 sm:w-6 animate-bounce" />
                 <span className="sr-only">Scroll down</span>
               </Button>
             </div>
@@ -110,17 +116,19 @@ export default async function Home() {
       </section>
 
       {/* Category Navigation */}
-      <section className="w-full bg-muted/50 py-8 border-y">
+      <section className="w-full bg-muted/50 py-6 sm:py-8 border-y overflow-x-auto">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex justify-start sm:justify-center gap-3 sm:gap-4 min-w-max sm:flex-wrap">
             {categories.map((category) => (
               <Link
                 key={category.name}
                 href={category.href}
-                className="flex items-center gap-2 px-4 py-2 rounded-full transition-all hover:scale-105"
+                className="flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full transition-all hover:scale-105"
               >
-                <span className="text-2xl">{category.icon}</span>
-                <span className="font-medium">{category.name}</span>
+                <span className="text-xl sm:text-2xl">{category.icon}</span>
+                <span className="text-sm sm:text-base font-medium whitespace-nowrap">
+                  {category.name}
+                </span>
               </Link>
             ))}
           </div>
@@ -128,34 +136,35 @@ export default async function Home() {
       </section>
 
       {/* Featured Posts */}
-      <section className="w-full py-20 bg-background">
+      <section className="w-full py-12 sm:py-16 md:py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center text-center mb-12">
-            <Badge variant="outline" className="mb-3">
+          <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
+            <Badge variant="outline" className="mb-2 sm:mb-3">
               Latest Articles
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading mb-3 sm:mb-4">
               Trending Health Insights
             </h2>
-            <p className="text-muted-foreground max-w-2xl">
+            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl">
               Discover our most popular evidence-based articles to help you make
               informed decisions about your health.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {featuredPosts.map((post) => (
               <BlogPostSummary key={post.id || post.slug} post={post} />
             ))}
           </div>
-          <div className="flex justify-center mt-12">
+          <div className="flex justify-center mt-8 sm:mt-12">
             <Button
               asChild
-              size="lg"
+              size="default"
               variant="outline"
-              className="rounded-full"
+              className="rounded-full text-sm sm:text-base"
             >
-              <Link href="/blog" className="flex items-center gap-2">
-                View All Articles <ArrowRight className="h-4 w-4" />
+              <Link href="/blog" className="flex items-center gap-1 sm:gap-2">
+                View All Articles{" "}
+                <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" />
               </Link>
             </Button>
           </div>
@@ -163,28 +172,30 @@ export default async function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="w-full py-20 bg-muted/30">
+      <section className="w-full py-12 sm:py-16 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center text-center mb-16">
-            <Badge variant="outline" className="mb-3">
+          <div className="flex flex-col items-center text-center mb-8 sm:mb-12 md:mb-16">
+            <Badge variant="outline" className="mb-2 sm:mb-3">
               Why Choose Us
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading mb-3 sm:mb-4">
               The WellnessAware Difference
             </h2>
-            <p className="text-muted-foreground max-w-2xl">
+            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl">
               We&#39;re committed to providing you with reliable, actionable
               health information you can trust.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             <Card className="bg-background border-none shadow-lg hover:shadow-xl transition-all">
-              <CardContent className="pt-8">
-                <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-6">
-                  <BookOpen className="h-6 w-6 text-primary" />
+              <CardContent className="pt-6 sm:pt-8">
+                <div className="bg-primary/10 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-4 sm:mb-6">
+                  <BookOpen className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Evidence-Based</h3>
-                <p className="text-muted-foreground">
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">
+                  Evidence-Based
+                </h3>
+                <p className="text-sm sm:text-base text-muted-foreground">
                   All our content is backed by scientific research and reviewed
                   by health professionals.
                 </p>
@@ -200,18 +211,21 @@ export default async function Home() {
                     href="/about"
                     className="flex items-center gap-1 text-primary"
                   >
-                    Learn more <ChevronRight className="h-4 w-4" />
+                    Learn more{" "}
+                    <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
                   </Link>
                 </Button>
               </CardFooter>
             </Card>
             <Card className="bg-background border-none shadow-lg hover:shadow-xl transition-all">
-              <CardContent className="pt-8">
-                <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-6">
-                  <Heart className="h-6 w-6 text-primary" />
+              <CardContent className="pt-6 sm:pt-8">
+                <div className="bg-primary/10 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-4 sm:mb-6">
+                  <Heart className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Holistic Approach</h3>
-                <p className="text-muted-foreground">
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">
+                  Holistic Approach
+                </h3>
+                <p className="text-sm sm:text-base text-muted-foreground">
                   We address all aspects of health: physical, mental, emotional,
                   and social wellbeing.
                 </p>
@@ -227,18 +241,21 @@ export default async function Home() {
                     href="/categories"
                     className="flex items-center gap-1 text-primary"
                   >
-                    Explore topics <ChevronRight className="h-4 w-4" />
+                    Explore topics{" "}
+                    <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
                   </Link>
                 </Button>
               </CardFooter>
             </Card>
-            <Card className="bg-background border-none shadow-lg hover:shadow-xl transition-all">
-              <CardContent className="pt-8">
-                <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-6">
-                  <Users className="h-6 w-6 text-primary" />
+            <Card className="bg-background border-none shadow-lg hover:shadow-xl transition-all sm:col-span-2 md:col-span-1">
+              <CardContent className="pt-6 sm:pt-8">
+                <div className="bg-primary/10 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-4 sm:mb-6">
+                  <Users className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Expert Contributors</h3>
-                <p className="text-muted-foreground">
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">
+                  Expert Contributors
+                </h3>
+                <p className="text-sm sm:text-base text-muted-foreground">
                   Our team includes doctors, nutritionists, fitness experts, and
                   mental health professionals.
                 </p>
@@ -254,7 +271,8 @@ export default async function Home() {
                     href="/about"
                     className="flex items-center gap-1 text-primary"
                   >
-                    Meet our team <ChevronRight className="h-4 w-4" />
+                    Meet our team{" "}
+                    <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
                   </Link>
                 </Button>
               </CardFooter>
@@ -264,16 +282,16 @@ export default async function Home() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="w-full py-20 bg-gradient-to-r from-primary/5 to-primary/10">
+      <section className="w-full py-12 sm:py-16 md:py-20 bg-gradient-to-r from-primary/5 to-primary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto text-center">
-            <Badge variant="outline" className="mb-3">
+          <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto text-center">
+            <Badge variant="outline" className="mb-2 sm:mb-3">
               Stay Updated
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 font-heading">
               Join Our Newsletter
             </h2>
-            <p className="text-muted-foreground mb-8">
+            <p className="text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8">
               Get the latest health insights, tips, and research delivered
               directly to your inbox. No spam, just valuable content.
             </p>
@@ -283,16 +301,16 @@ export default async function Home() {
       </section>
 
       {/* Gallery Section */}
-      <section className="w-full py-20 bg-background">
+      <section className="w-full py-12 sm:py-16 md:py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center text-center mb-12">
-            <Badge variant="outline" className="mb-3">
+          <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
+            <Badge variant="outline" className="mb-2 sm:mb-3">
               Visual Inspiration
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading mb-3 sm:mb-4">
               Health Gallery
             </h2>
-            <p className="text-muted-foreground max-w-2xl mb-8">
+            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mb-6 sm:mb-8">
               Explore our curated collection of health and wellness imagery to
               inspire your journey.
             </p>
