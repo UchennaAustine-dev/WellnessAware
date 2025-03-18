@@ -6,8 +6,17 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
-import { CalendarIcon, Clock, MessageCircle, Tag, Share2 } from "lucide-react";
+import {
+  CalendarIcon,
+  Clock,
+  MessageCircle,
+  Tag,
+  Share2,
+  ArrowLeft,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AdBanner } from "@/components/ads/ad-banner";
+import { InContentScript } from "@/components/ads/in-content-script";
 
 // Define the type for params
 type PageParams = {
@@ -118,6 +127,16 @@ export default async function BlogPostPage({
 
       <div className="flex justify-center w-full">
         <div className="w-full max-w-5xl px-4 sm:px-6 lg:px-8 py-10">
+          {/* Back button */}
+          <div className="mb-6">
+            <Button variant="ghost" size="sm" asChild className="gap-1">
+              <Link href="/blog">
+                <ArrowLeft className="h-4 w-4" />
+                Back to Blog
+              </Link>
+            </Button>
+          </div>
+
           {/* Hero section */}
           <div className="mb-10">
             <div className="flex flex-wrap items-center gap-3 mb-4">
@@ -169,6 +188,16 @@ export default async function BlogPostPage({
             </div>
           </div>
 
+          {/* Leaderboard ad after hero section */}
+          <div className="my-6 flex justify-center">
+            <div className="text-center">
+              <div className="text-xs text-muted-foreground mb-1">
+                Advertisement
+              </div>
+              <AdBanner size="728x90" slotId={3} />
+            </div>
+          </div>
+
           {/* Cover image */}
           <div className="relative w-full h-[400px] md:h-[500px] mb-10 rounded-xl overflow-hidden shadow-lg">
             <Image
@@ -180,22 +209,96 @@ export default async function BlogPostPage({
             />
           </div>
 
-          {/* Blog content */}
-          <article className="blog-content prose prose-lg dark:prose-invert max-w-none mb-16">
-            <div dangerouslySetInnerHTML={{ __html: post.content }} />
-          </article>
+          {/* Two-column layout for content and sidebar */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            {/* Main content */}
+            <div className="lg:col-span-2">
+              {/* Blog content */}
+              <article className="blog-content prose prose-lg dark:prose-invert max-w-none mb-16">
+                {/* Insert ad after first paragraph */}
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: post.content.replace(
+                      "</p>",
+                      '</p><div id="in-content-ad-1"></div>'
+                    ),
+                  }}
+                />
+              </article>
 
-          {/* Tags */}
-          <div className="mb-16 bg-muted/30 p-6 rounded-lg">
-            <h3 className="text-lg font-medium mb-4 flex items-center">
-              <Tag className="mr-2 h-4 w-4" /> Tags
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {post.tags.map((tag) => (
-                <Badge key={tag} variant="secondary" className="capitalize">
-                  {tag}
-                </Badge>
-              ))}
+              {/* In-content ad */}
+              <div className="my-8 flex justify-center">
+                <div className="text-center">
+                  <div className="text-xs text-muted-foreground mb-1">
+                    Advertisement
+                  </div>
+                  <AdBanner size="300x250" slotId={1} />
+                </div>
+              </div>
+
+              {/* Tags */}
+              <div className="mb-16 bg-muted/30 p-6 rounded-lg">
+                <h3 className="text-lg font-medium mb-4 flex items-center">
+                  <Tag className="mr-2 h-4 w-4" /> Tags
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {post.tags.map((tag) => (
+                    <Badge key={tag} variant="secondary" className="capitalize">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Sidebar */}
+            <div className="lg:col-span-1">
+              <div className="sticky top-20 space-y-8">
+                {/* Sidebar ad */}
+                <div className="my-6">
+                  <div className="text-xs text-muted-foreground mb-1">
+                    Advertisement
+                  </div>
+                  <AdBanner size="300x250" slotId={1} />
+                </div>
+
+                <div className="bg-muted/30 p-6 rounded-lg">
+                  <h3 className="text-lg font-medium mb-4">Popular Articles</h3>
+                  <div className="space-y-4">
+                    {relatedPosts.slice(0, 3).map((relatedPost) => (
+                      <div key={relatedPost.slug} className="flex gap-3">
+                        <div className="relative h-16 w-16 flex-shrink-0 rounded-md overflow-hidden">
+                          <Image
+                            src={relatedPost.image || "/placeholder.svg"}
+                            alt={relatedPost.title}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <Link
+                            href={`/blog/${relatedPost.slug}`}
+                            className="font-medium hover:text-primary transition-colors line-clamp-2"
+                          >
+                            {relatedPost.title}
+                          </Link>
+                          <p className="text-xs text-muted-foreground mt-1">
+                            {relatedPost.date}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Second sidebar ad */}
+                <div className="my-6">
+                  <div className="text-xs text-muted-foreground mb-1">
+                    Advertisement
+                  </div>
+                  <AdBanner size="300x600" slotId={2} />
+                </div>
+              </div>
             </div>
           </div>
 
@@ -263,6 +366,16 @@ export default async function BlogPostPage({
             </div>
           )}
 
+          {/* Leaderboard ad before CTA */}
+          <div className="my-6 flex justify-center">
+            <div className="text-center">
+              <div className="text-xs text-muted-foreground mb-1">
+                Advertisement
+              </div>
+              <AdBanner size="728x500" slotId={4} />
+            </div>
+          </div>
+
           {/* Call to action */}
           <div className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl p-8 text-center shadow-sm">
             <h3 className="text-2xl font-bold mb-4">Enjoyed this article?</h3>
@@ -284,8 +397,25 @@ export default async function BlogPostPage({
               </Button>
             </div>
           </div>
+
+          {/* Bottom ad */}
+          <div className="mt-16 flex justify-center">
+            <div className="text-center">
+              <div className="text-xs text-muted-foreground mb-1">
+                Advertisement
+              </div>
+              <AdBanner size="750x400" slotId={5} />
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* Notification ads */}
+      <AdBanner size="notification" notificationId={3} />
+      <AdBanner size="notification" notificationId={7} />
+
+      {/* Script to inject ads into content */}
+      <InContentScript />
     </>
   );
 }

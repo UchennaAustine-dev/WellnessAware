@@ -5,7 +5,8 @@ import { SiteFooter } from "@/components/common/site-footer";
 import { SiteHeader } from "@/components/common/site-header";
 import { ThemeProvider } from "next-themes";
 import type { Metadata } from "next";
-import { GDPRConsentBanner } from "@/components/home/gdpr-consent-banner";
+import { GDPRConsentBanner } from "@/components/ads/gdpr-consent-banner";
+import { AdManager } from "@/components/ads/ad-manager";
 
 // SEO metadata
 export const metadata: Metadata = {
@@ -104,6 +105,13 @@ export default function RootLayout({
           src="https://fstatic.netpub.media/extra/cmp/cmp-gdpr.js"
           defer
         />
+        {/* Netpub script for sticky and interstitial ads */}
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `(function(a) { if (!document.getElementById(a)) { const s = document.createElement("script"); s.id = a; s.async = true; s.src = ["https://fstatic.netpub.media/static/", a, ".min.js?", Date.now()].join(""); document.head.appendChild(s); } })("6ab7f04dbd574119581a67a94b51cec0");`,
+          }}
+        />
       </head>
       <body
         className={`${dmSans.variable} ${smoochSans.variable} font-sans antialiased`}
@@ -119,6 +127,25 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <SiteFooter />
             <GDPRConsentBanner />
+            <AdManager />
+            {/* Sticky ad at the bottom */}
+            <div className="fixed bottom-0 left-0 right-0 z-40 flex justify-center">
+              <div className="text-xs text-white bg-black/70 px-2 py-0.5 rounded-t-md">
+                Advertisement
+              </div>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: `<ins class="adv-6ab7f04dbd574119581a67a94b51cec0" data-sizes-desktop="200x200,250x250,300x250,336x280,468x60,678x60,728x90,870x200,970x250,970x90" data-sizes-mobile="200x200,250x250,300x250,300x50,320x100,320x50,360x100,360x50" data-sticky="1"></ins>`,
+                }}
+              />
+            </div>
+
+            {/* Interstitial ad */}
+            <div
+              dangerouslySetInnerHTML={{
+                __html: `<ins class="adv-6ab7f04dbd574119581a67a94b51cec0" data-sizes-desktop="1050x300,200x200,250x250,300x250,336x280,400x350,468x60,678x60,  data-sizes-desktop="1050x300,200x200,250x250,300x250,336x280,400x350,468x60,678x60,700x300,728x500,728x90,750x400,750x480,870x200,970x250,970x90" data-sizes-mobile="200x200,250x250,300x250,300x50,320x100,320x50,360x100,360x50" data-interstitial="1"></ins>`,
+              }}
+            />
           </div>
         </ThemeProvider>
       </body>

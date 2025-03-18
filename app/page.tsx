@@ -12,6 +12,8 @@ import NewsletterSection from "@/components/home/NewsletterSection";
 import CTASection from "@/components/home/CTASection";
 import GallerySection from "@/components/home/GallerySection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
+import { LeaderboardAd } from "@/components/ads/leaderboard-ad";
+import { InContentAd } from "@/components/ads/in-content-ad";
 
 export default async function Home() {
   // Get featured posts from the blog data
@@ -74,6 +76,9 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* Leaderboard Ad after hero section */}
+      <LeaderboardAd />
+
       {/* Featured Posts */}
       <section className="w-full py-12 sm:py-16 md:py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -109,6 +114,9 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      {/* In-content ad */}
+      <InContentAd />
 
       {/* Features Section */}
       <section className="w-full py-12 sm:py-16 md:py-20 bg-muted/30">
@@ -225,6 +233,9 @@ export default async function Home() {
 
       {/* Gallery Section */}
       <GallerySection />
+
+      {/* In-content ad */}
+      <InContentAd />
 
       {/* Testimonials */}
       <TestimonialsSection />
