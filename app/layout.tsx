@@ -7,6 +7,7 @@ import { ThemeProvider } from "next-themes";
 import type { Metadata } from "next";
 import { GDPRConsentBanner } from "@/components/ads/gdpr-consent-banner";
 import { AdManager } from "@/components/ads/ad-manager";
+import Script from "next/script";
 
 // SEO metadata
 export const metadata: Metadata = {
@@ -148,6 +149,20 @@ export default function RootLayout({
             />
           </div>
         </ThemeProvider>
+        <Script id="aclib-auto-tag" strategy="afterInteractive">
+          {`
+            aclib.runAutoTag({
+              zoneId: 'q6kpb6njyd',
+            });
+          `}
+        </Script>
+        <Script id="aclib-auto-tag" strategy="afterInteractive">
+          {`
+            aclib.runAutoTag({
+              zoneId: 'ab7m7wwasz',
+            });
+          `}
+        </Script>
       </body>
     </html>
   );
