@@ -113,6 +113,11 @@ export default function RootLayout({
             __html: `(function(a) { if (!document.getElementById(a)) { const s = document.createElement("script"); s.id = a; s.async = true; s.src = ["https://fstatic.netpub.media/static/", a, ".min.js?", Date.now()].join(""); document.head.appendChild(s); } })("6ab7f04dbd574119581a67a94b51cec0");`,
           }}
         />
+        <script
+          id="aclib"
+          type="text/javascript"
+          src="//acscdn.com/script/aclib.js"
+        ></script>
       </head>
       <body
         className={`${dmSans.variable} ${smoochSans.variable} font-sans antialiased`}
