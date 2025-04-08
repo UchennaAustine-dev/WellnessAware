@@ -2,11 +2,12 @@
 # https://netpub.media
 # info@netpub.media
 
-# START ads.txt - wellnessaware.site - 17/03/2025 15:01 - netpub.media
+# START ads.txt - wellnessaware.site - 08/04/2025 20:58 - netpub.media
 netpub.media, d44fade3dd00f82cf570df0b7b867147, DIRECT
 netmore.media, d44fade3dd00f82cf570df0b7b867147, DIRECT
 152media.info, 152M10, RESELLER
 152media.info, 152M972, RESELLER
+33across.com, 0010b00002ODU4HAAX, RESELLER, bbea06d9c4d2853c
 33across.com, 0010b00002T3JniAAF, RESELLER, bbea06d9c4d2853c
 33across.com, 0010b00002e4MRRAA2, DIRECT, bbea06d9c4d2853c
 33across.com, 0013300001kQj2HAAS, RESELLER, bbea06d9c4d2853c
@@ -81,6 +82,7 @@ appnexus.com, 3703, RESELLER, f5ab79cb980f11d1
 appnexus.com, 7597, RESELLER, f5ab79cb980f11d1
 appnexus.com, 7664, RESELLER, f5ab79cb980f11d1
 appnexus.com, 8233, RESELLER, f5ab79cb980f11d1
+appnexus.com, 8826, RESELLER, f5ab79cb980f11d1
 appnexus.com, 9284, DIRECT, f5ab79cb980f11d1
 appnexus.com, 9393, RESELLER, f5ab79cb980f11d1
 aps.amazon.com, 3965, RESELLER
@@ -199,6 +201,7 @@ improvedigital.com, 1790, RESELLER
 improvedigital.com, 1863, RESELLER
 improvedigital.com, 2048, RESELLER
 improvedigital.com, 2050, RESELLER
+improvedigital.com, 2106, RESELLER
 improvedigital.com, 2365, RESELLER
 improvedigital.com, 2447, RESELLER
 indexexchange.com, 183592, RESELLER, 50b1c356f2c5c8fc
@@ -228,6 +231,7 @@ kargo.com, 8800, DIRECT
 kargo.com, 8824, RESELLER
 krushmedia.com, AJxF6R572a9M6CaTvK, RESELLER
 krushmedia.com, AJxF6R574a9M6CaTvK, RESELLER
+kueez.com, 78f0cb3041f91df7f6eeea7c7178fffc, RESELLER
 lijit.com, 249425, RESELLER, fafdf38b16bf6b2b
 lijit.com, 257429, RESELLER, fafdf38b16bf6b2b
 lijit.com, 257429-eb, RESELLER, fafdf38b16bf6b2b
@@ -246,6 +250,7 @@ lijit.com, 374814-eb, RESELLER, fafdf38b16bf6b2b
 lijit.com, 375328, RESELLER, fafdf38b16bf6b2b
 lijit.com, 380632, RESELLER, fafdf38b16bf6b2b
 lijit.com, 380632-eb, RESELLER, fafdf38b16bf6b2b
+lijit.com, 407406, RESELLER, fafdf38b16bf6b2b
 lijit.com, 408376, RESELLER, fafdf38b16bf6b2b
 lijit.com, 408376-eb, RESELLER, fafdf38b16bf6b2b
 lijit.com, 476824, DIRECT, fafdf38b16bf6b2b
@@ -255,17 +260,19 @@ loopme.com, 11228, RESELLER, 6c8d5f95897a5a3b
 loopme.com, 11468, RESELLER, 6c8d5f95897a5a3b
 loopme.com, 11480, RESELLER, 6c8d5f95897a5a3b
 loopme.com, 11575, RESELLER, 6c8d5f95897a5a3b
+loopme.com, 11576, RESELLER, 6c8d5f95897a5a3b
 loopme.com, 5679, RESELLER, 6c8d5f95897a5a3b
 markappmedia.site, 533994, RESELLER
 media.net, 8CU33YS38, RESELLER
 media.net, 8CU5DERG1, DIRECT
 media.net, 8CUB46Z7R, DIRECT
-netpub.media, d44fade3dd00f82cf570df0b7b867147, DIRECT
-netmore.media, d44fade3dd00f82cf570df0b7b867147, DIRECT
 media.net, 8CULQ3LW5, RESELLER
 media.net, 8CUZ1MK22, RESELLER
+media.net, 8cu4jtrf9, RESELLER
 mediafuse.com, 711, DIRECT
 mgid.com, 663441, DIRECT, d4c29acad76ce94f
+netpub.media, d44fade3dd00f82cf570df0b7b867147, DIRECT
+netmore.media, d44fade3dd00f82cf570df0b7b867147, DIRECT
 mgid.com, 833178, DIRECT, d4c29acad76ce94f
 mintegral.com, 10043, RESELLER, 0aeed750c80d6423
 minutemedia.com, 01gya4708ddm, RESELLER
@@ -284,6 +291,7 @@ onetag.com, 5927d926323dc2c, DIRECT
 onetag.com, 59817ac704fe3e8, RESELLER
 onetag.com, 59a18369e249bfb, RESELLER
 onetag.com, 6b859b96c564fbe, RESELLER
+onetag.com, 6e053d779444c00, RESELLER
 onetag.com, 75753f1ebcc343c, RESELLER
 onetag.com, 770a440e65869c2, RESELLER
 onetag.com, 7a07370227fc000, RESELLER
@@ -307,6 +315,7 @@ openx.com, 540393169, RESELLER, 6a698e2ec38604c6
 openx.com, 541031350, RESELLER, 6a698e2ec38604c6
 openx.com, 541177116, RESELLER, 6a698e2ec38604c6
 openx.com, 557083110, RESELLER, 6a698e2ec38604c6
+openx.com, 557564833, RESELLER, 6a698e2ec38604c6
 openx.com, 558899373, RESELLER, 6a698e2ec38604c6
 openx.com, 559680764, RESELLER, 6a698e2ec38604c6
 orangeclickmedia.com, ach5lxtq1pmgjoz4, RESELLER, cd730d2f56b472c4
@@ -351,6 +360,7 @@ pubmatic.com, 161527, RESELLER, 5d62403b186f2ace
 pubmatic.com, 161562, RESELLER, 5d62403b186f2ace
 pubmatic.com, 161593, RESELLER, 5d62403b186f2ace
 pubmatic.com, 161673, RESELLER, 5d62403b186f2ace
+pubmatic.com, 162110, RESELLER, 5d62403b186f2ace
 pubmatic.com, 163238, RESELLER, 5d62403b186f2ace
 pubmatic.com, 163389, RESELLER, 5d62403b186f2ace
 pubmatic.com, 163517, RESELLER, 5d62403b186f2ace
@@ -374,6 +384,7 @@ rtbhouse.com, eqt3MD0DmNFukxfZqFm0, DIRECT
 rubiconproject.com, 11006, RESELLER, 0bfd66d529a55807
 rubiconproject.com, 13510, RESELLER, 0bfd66d529a55807
 rubiconproject.com, 16114, RESELLER, 0bfd66d529a55807
+rubiconproject.com, 16920, RESELLER, 0bfd66d529a55807
 rubiconproject.com, 17210, RESELLER, 0bfd66d529a55807
 rubiconproject.com, 17888, RESELLER, 0bfd66d529a55807
 rubiconproject.com, 17960, RESELLER, 0bfd66d529a55807
@@ -402,6 +413,7 @@ sharethrough.com, QWxGEL6s, RESELLER, d53b998a7bd4ecd2
 sharethrough.com, S6xYgb3B, RESELLER, d53b998a7bd4ecd2
 sharethrough.com, c21oBkqP, RESELLER, d53b998a7bd4ecd2
 sharethrough.com, cc26d15a, RESELLER, d53b998a7bd4ecd2
+sharethrough.com, n98xdzel, RESELLER, d53b998a7bd4ecd2
 sharethrough.com, r4ScMSsf, RESELLER, d53b998a7bd4ecd2
 sharethrough.com, uDlHlVKG, RESELLER, d53b998a7bd4ecd2
 smaato.com, 1100004890, RESELLER, 07bcf65f187117b4
@@ -430,6 +442,7 @@ smartadserver.com, 4111, RESELLER, 060d053dcf45cbf3
 smartadserver.com, 4125, RESELLER, 060d053dcf45cbf3
 smartadserver.com, 4144, RESELLER, 060d053dcf45cbf3
 smartadserver.com, 4253, RESELLER, 060d053dcf45cbf3
+smartadserver.com, 4288, RESELLER, 060d053dcf45cbf3
 smartadserver.com, 4342, RESELLER, 060d053dcf45cbf3
 smartadserver.com, 4483, RESELLER, 060d053dcf45cbf3
 smartadserver.com, 4537, RESELLER, 060d053dcf45cbf3
@@ -438,6 +451,7 @@ smartyads.com, 260, RESELLER, fd2bde0ff2e62c5d
 smilewanted.com, 3834, RESELLER
 smilewanted.com, 4116, RESELLER
 sonobi.com, 3aed893727, RESELLER, d1a215d9eb5aee9e
+sonobi.com, 4c4fba1717, RESELLER, d1a215d9eb5aee9e
 sonobi.com, 7f5fa520f8, RESELLER, d1a215d9eb5aee9e
 sovrn.com, 249425, RESELLER, fafdf38b16bf6b2b
 sovrn.com, 267974, RESELLER, fafdf38b16bf6b2b
@@ -447,6 +461,7 @@ sovrn.com, 374814, RESELLER, fafdf38b16bf6b2b
 sovrn.com, 380632, RESELLER, fafdf38b16bf6b2b
 spotim.market, sp_AYL2022, RESELLER, 077e5f709d15bdbb
 springserve.com, 1247, RESELLER, a24eb641fc82e93d
+start.io, 185522363, RESELLER
 stroeer.com, 23289, DIRECT
 sunmedia.tv, 12918514-294e-4e6e-8eae-c89a8fec20f5, DIRECT, 24794F6
 sunmedia.tv, 455be357-ad46-4f10-8872-701656980003, DIRECT, 24794F6
@@ -460,6 +475,7 @@ telaria.com, 51vtw, RESELLER, 1a4e959a1b50034a
 telaria.com, 9l6ha-6m433, RESELLER, 1a4e959a1b50034a
 telaria.com, cpu32-92xut, RESELLER, 1a4e959a1b50034a
 telaria.com, lkiu7-jqvg1, RESELLER, 1a4e959a1b50034a
+thebrave.io, 1234679, DIRECT, c25b2154543746ac
 themediagrid.com, 2LYG9A, RESELLER, 35d5010d7789b49d
 themediagrid.com, DNWTUA, DIRECT, 35d5010d7789b49d
 themediagrid.com, JTQKMP, RESELLER, 35d5010d7789b49d
@@ -467,6 +483,7 @@ themediagrid.com, JZN34P, DIRECT, 35d5010d7789b49d
 themediagrid.com, P19GFJ, DIRECT, 35d5010d7789b49d
 themediagrid.com, RYIDPE, RESELLER, 35d5010d7789b49d
 themediagrid.com, VIY354, RESELLER, 35d5010d7789b49d
+themediagrid.com, uot45z, RESELLER, 35d5010d7789b49d
 tremorhub.com, 2auap-45web, RESELLER, 1a4e959a1b50034a
 tremorhub.com, 2auap-ich32, RESELLER, 1a4e959a1b50034a
 tremorhub.com, 2auap-zihku, RESELLER, 1a4e959a1b50034a
@@ -492,6 +509,7 @@ video.unrulymedia.com, 2564526802, RESELLER, 6f752381ad5ec0e5
 video.unrulymedia.com, 2736329702851206590, RESELLER, 6f752381ad5ec0e5
 video.unrulymedia.com, 297618916, RESELLER, 6f752381ad5ec0e5
 video.unrulymedia.com, 3139274702404301777, RESELLER, 6f752381ad5ec0e5
+video.unrulymedia.com, 3486482593, RESELLER, 6f752381ad5ec0e5
 video.unrulymedia.com, 367782854, RESELLER, 6f752381ad5ec0e5
 video.unrulymedia.com, 533898005, RESELLER, 6f752381ad5ec0e5
 video.unrulymedia.com, 5672421953199218469, RESELLER, 6f752381ad5ec0e5
@@ -516,9 +534,12 @@ yieldlab.net, 5798882, RESELLER
 yieldlab.net, 6248161, RESELLER
 yieldlab.net, 6374282, RESELLER
 yieldmo.com, 2757543169808605705, RESELLER
+yieldmo.com, 3133660606033240149, RESELLER
+yieldmo.com, 3732919948490514514, RESELLER
 zeta.com, 891, DIRECT
+zetaglobal.com, 108, RESELLER
 zetaglobal.net, 891, DIRECT
 zetaglobal.net, 891, RESELLER
 OWNERDOMAIN=wellnessaware.site
 MANAGERDOMAIN=netpub.media
-# END ads.txt - wellnessaware.site - 17/03/2025 15:01 - netpub.media
+# END ads.txt - wellnessaware.site - 08/04/2025 20:58 - netpub.media
